@@ -1,0 +1,21 @@
+
+def add_events(request):
+    logged_user=request.user
+    
+    context={
+        'logged_user':logged_user,
+        
+    }
+    return render(request,'adminuser/add_events.html',context)
+
+
+...................................................................
+
+{% extends 'adminuser/base.html'%}
+{% load static %}
+{% block title %}
+    EventNest | 
+{% endblock %}
+{% block content %}
+ 
+{% endblock %}

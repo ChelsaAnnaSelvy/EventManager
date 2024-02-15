@@ -1,0 +1,46 @@
+{% extends 'adminuser/base.html'%}
+{% load static %}
+{% block title %}
+    EventNest | EventDetails
+{% endblock %}
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-12 d-flex justify-content-end me-auto">
+        <a href="{% url 'add_event' %}" class="btn btn-secondary">ADD NEW EVENT</a>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>                
+                <th scope="col">Speaker</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% if event_details %}
+                    {% for event in event_details %}
+                        <tr>
+                            <td>{{ event.event_date }}</td>
+                            <td>{{ event.title }}</td>
+                            <td>{{ event.description }}</td>
+                            <td>{{ event.speaker_name }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <th scope="row" colspan="4" class="text-center">No records to display</th>
+                    </tr>
+                {% endif %}
+
+            
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{% endblock %}

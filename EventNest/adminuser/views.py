@@ -49,7 +49,7 @@ def add_events(request):
             if add_event_form.is_valid():
                 add_event_form.save()
                 messages.success(request, 'A new event is successfully added.')
-                return redirect('add_event')
+                return redirect('event_details')
     else:
         add_event_form=AddEventForm()
     context={
@@ -58,4 +58,6 @@ def add_events(request):
         
     }
     return render(request,'adminuser/add_events.html',context)
+
+
 

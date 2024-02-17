@@ -46,8 +46,8 @@ class AddEventForm(forms.ModelForm):
             'end_time': forms.TimeInput(attrs={'class': 'form-control w-100 py-3'}),
             'speaker_name': forms.TextInput(attrs={'class': 'form-control w-100 py-3'}),
             'subject': forms.TextInput(attrs={'class': 'form-control w-100 py-3'}),
-            'is_published': forms.BooleanField(widget=forms.RadioSelect),
-            'is_online': forms.BooleanField(widget=forms.RadioSelect),
+            'is_published': forms.CheckboxInput(attrs={'class': 'form-check-input'}),  
+            'is_online': forms.CheckboxInput(attrs={'class': 'form-check-input'}),  
             'video_link': forms.URLInput(attrs={'class': 'form-control w-100 py-3'}),
             'seats_available': forms.TextInput(attrs={'class': 'form-control w-100 py-3'}),
         }

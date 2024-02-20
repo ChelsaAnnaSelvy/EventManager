@@ -29,6 +29,11 @@
                             <td>{{ event.title }}</td>
                             <td>{{ event.description }}</td>
                             <td>{{ event.speaker_name }}</td>
+                            <td><form method="POST" action="{% url 'edit_event' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">EDIT</button>        
+                                <input type="hidden" value="{{ event.event_id }}" name="event_id" id="event_id"/>
+                              </form></td>
                         </tr>
                     {% endfor %}
                 {% else %}

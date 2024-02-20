@@ -6,10 +6,11 @@
 {% block content %}
 
 <form
-    method="post"
-    action="{% url 'add_event'%}"
+    method="POST"
+    action="{% url 'edit_event' %}"
     enctype="multipart/form-data"
-  >
+>
+
     {% csrf_token %}
     <div class="row g-3 mt-4">
         <div class="col-md-3"></div>
@@ -31,8 +32,8 @@
     </div>  
  
   <div class="text-center mt-2">
-   
-    <button type="submit" class="btn btn-lg btn-primary mt-2">ADD NEW EVENTS</button>
+    <input type="hidden" value="{{event_id }}" name="event_id" id="event_id"/>
+    <button type="submit" class="btn btn-lg btn-primary mt-2">UPDATE EVENT</button>
   </div>
   
  

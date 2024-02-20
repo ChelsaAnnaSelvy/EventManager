@@ -77,7 +77,6 @@ def edit_event(request):
         form = AddEventForm(request.POST, request.FILES, instance=event)  
         
         if form.is_valid():
-            print('VALID')
             updated_event = form.save(commit=False)
             updated_event.last_updated_by = logged_user
             updated_event.save()
@@ -94,28 +93,4 @@ def edit_event(request):
             }
 
     return render(request, 'adminuser/modify_event.html', context)
-
-# def edit_event(request):
-#     logged_user=request.user
-    
-#     if request.method =='POST':
-#         event_id = request.POST.get('event_id', 0)    
-#         event = get_object_or_404(EventDetails, event_id=event_id) 
-#         form =AddEventForm(request.POST,request.FILES,instance=event)
-#         if form.is_valid():
-#             updated_event=form.save(commit=False)
-#             updated_event.last_updated_by=logged_user
-#             updated_event.save()
-#             messages.success(request, 'The selected event is successfully edited.')
-#             return redirect('event_details')
-#         else:
-#             event_id = request.POST.get('event_id', 0)    
-#             event = get_object_or_404(EventDetails, event_id=event_id) 
-#             form=AddEventForm(instance = event)
-#             context={
-#             'logged_user':logged_user,
-#             'form': form,
-            
-#         }
-#     return render(request,'adminuser/modify_event.html',context)
 
